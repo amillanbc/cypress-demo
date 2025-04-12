@@ -43,6 +43,9 @@
                   >
                     Login error.
                   </div>
+                  <div class="text-caption q-mt-sm text-center cursor-pointer">
+                    <u>Register</u>
+                  </div>
                 </div>
               </q-btn-dropdown>
               <q-btn
