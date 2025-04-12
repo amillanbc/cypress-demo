@@ -12,7 +12,7 @@
             :key="product.id"
           >
             <q-card class="my-card">
-              <q-card-section @click="goToProduct(product.id)">
+              <q-card-section @click="$router.push(`/product/${product.id}`)">
                 <div :style="setProductTileStyle(product.image)" />
               </q-card-section>
               <q-card-section>
@@ -49,8 +49,6 @@ const setProductTileStyle = (url: string) => {
     cursor: "pointer",
   };
 };
-
-const goToProduct = (id: number) => router.push(`/product/${id}`);
 
 // LC HOOKS
 onMounted(() => {
