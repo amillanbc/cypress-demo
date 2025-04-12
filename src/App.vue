@@ -52,6 +52,7 @@
                     </div>
                     <div
                       class="text-caption q-mt-sm text-center cursor-pointer"
+                      v-close-popup
                     >
                       <u>Register</u>
                     </div>
