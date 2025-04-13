@@ -8,14 +8,23 @@
             <q-img :src="product.image" />
           </div>
           <div class="col q-pa-md">
-            <div class="text-h4">{{ product.title }}</div>
-            <div class="text-caption q-mb-sm">{{ product.category }}</div>
+            <div class="text-h4" data-cy="product-name">
+              {{ product.title }}
+            </div>
+            <div class="text-caption q-mb-sm" data-cy="product-category">
+              {{ product.category }}
+            </div>
             <div class="q-mb-lg">
               <q-rating v-model="product.rating.rate" readonly />
               ({{ product.rating.count }})
             </div>
-            <div class="text-body q-mb-lg">{{ product.description }}</div>
-            <div class="text-h2 poppins-semibold q-mb-lg">
+            <div class="text-body q-mb-lg" data-cy="product-description">
+              {{ product.description }}
+            </div>
+            <div
+              class="text-h2 poppins-semibold q-mb-lg"
+              data-cy="product-price"
+            >
               ${{ product.price.toFixed(2) }}
             </div>
             <q-btn
@@ -24,6 +33,7 @@
               icon-right="shopping_cart"
               label="Add to cart"
               @click="addToCart()"
+              data-cy="product-add-btn"
             />
           </div>
         </div>

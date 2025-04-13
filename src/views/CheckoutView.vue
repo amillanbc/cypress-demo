@@ -8,6 +8,7 @@
           <div class="col-8 q-pr-md">
             <div
               class="text-h6 text-center q-py-xl text-grey-4"
+              data-cy="empty-cart-msg"
               v-if="!cart.length"
             >
               Your cart is empty.
@@ -27,6 +28,7 @@
                     </div>
                     <div
                       class="text-caption text-red"
+                      data-cy="remove-from-cart-btn"
                       @click="store.removeFromCart(index)"
                     >
                       <u>Remove item</u>
@@ -65,6 +67,7 @@
               :disable="!cart.length || loading"
               :loading="loading"
               @click="placeOrder()"
+              data-cy="place-order-btn"
             />
           </div>
         </div>

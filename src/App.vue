@@ -91,8 +91,9 @@
                 color="white"
                 icon="shopping_cart"
                 class="q-ml-md"
-                v-if="isLoggedIn"
+                v-show="isLoggedIn"
                 @click="$router.push('/checkout')"
+                data-cy="checkout-btn"
               />
             </div>
           </div>

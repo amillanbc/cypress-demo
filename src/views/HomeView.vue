@@ -8,18 +8,29 @@
         <div class="row">
           <div
             class="col-3 q-pa-md"
-            v-for="product in allProducts"
+            v-for="(product, index) in allProducts"
             :key="product.id"
           >
             <q-card>
-              <q-card-section @click="$router.push(`/product/${product.id}`)">
+              <q-card-section
+                @click="$router.push(`/product/${product.id}`)"
+                :data-cy="`product-tile-${index}`"
+              >
                 <div :style="setProductTileStyle(product.image)" />
               </q-card-section>
               <q-card-section>
-                <div class="text-subtitle2 product-title">
+                <div
+                  class="text-subtitle2 product-title"
+                  :data-cy="`product-tile-name-${index}`"
+                >
                   {{ product.title }}
                 </div>
-                <div class="text-caption">${{ product.price.toFixed(2) }}</div>
+                <div
+                  class="text-caption"
+                  :data-cy="`product-tile-price-${index}`"
+                >
+                  ${{ product.price.toFixed(2) }}
+                </div>
               </q-card-section>
             </q-card>
           </div>
