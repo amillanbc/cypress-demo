@@ -15,9 +15,10 @@
                 stretch
                 flat
                 :label="isLoggedIn ? 'My account' : 'Login'"
+                data-cy="auth-btn"
               >
                 <template v-if="!isLoggedIn">
-                  <div class="q-pa-md">
+                  <div class="q-pa-md" data-cy="login-form">
                     <q-input
                       filled
                       v-model="user"
@@ -25,6 +26,7 @@
                       class="q-mb-sm"
                       color="amber-10"
                       @click="errAtLogin = false"
+                      data-cy="user-input"
                     />
                     <q-input
                       filled
@@ -32,6 +34,7 @@
                       label="Password"
                       color="amber-10"
                       @click="errAtLogin = false"
+                      data-cy="pass-input"
                     />
                   </div>
                   <q-separator />
@@ -44,15 +47,18 @@
                       @click="login()"
                       :loading="loading"
                       :disabled="!user || !pass || loading"
+                      data-cy="login-btn"
                     />
                     <div
                       class="text-caption text-red q-mt-sm text-center"
+                      data-cy="login-err-msg"
                       v-if="errAtLogin"
                     >
                       Login error.
                     </div>
                     <div
                       class="text-caption q-mt-sm text-center cursor-pointer"
+                      data-cy="register-btn"
                       v-close-popup
                     >
                       <u @click="$router.push('/register')">Register</u>
@@ -60,7 +66,7 @@
                   </div>
                 </template>
                 <template v-else>
-                  <div class="q-pa-md">
+                  <div class="q-pa-md" data-cy="auth-welcome">
                     <div class="text-caption">Welcome,</div>
                     <div class="text-subtitle poppins-semibold">
                       Admin Admin
@@ -70,6 +76,7 @@
                   <div class="q-pa-md">
                     <div
                       class="text-center text-caption cursor-pointer"
+                      data-cy="logout-btn"
                       @click="logout()"
                     >
                       <u>Logout</u>

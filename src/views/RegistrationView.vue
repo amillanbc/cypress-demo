@@ -12,6 +12,7 @@
           color="amber-10"
           class="q-mb-md"
           v-model="user"
+          data-cy="user-register-input"
         />
         <q-input
           filled
@@ -19,6 +20,7 @@
           color="amber-10"
           class="q-mb-md"
           v-model="email"
+          data-cy="email-register-input"
         />
         <q-input
           v-model="pass"
@@ -27,6 +29,7 @@
           color="amber-10"
           class="q-mb-md"
           label="Password"
+          data-cy="pass-register-input"
         >
           <template v-slot:append>
             <q-icon
@@ -43,6 +46,7 @@
           class="q-mb-md"
           v-model="repass"
           :type="isRePwd ? 'password' : 'text'"
+          data-cy="repass-register-input"
         >
           <template v-slot:append>
             <q-icon
@@ -57,6 +61,7 @@
           color="amber-10"
           class="q-mb-md"
           label="Accept terms & conditions"
+          data-cy="accept-register-checkbox"
         />
         <div class="row justify-center">
           <q-btn
@@ -66,6 +71,7 @@
             :disable="!validateForm || loading"
             :loading="loading"
             @click="registerUser()"
+            data-cy="register-btn"
           />
         </div>
       </div>
