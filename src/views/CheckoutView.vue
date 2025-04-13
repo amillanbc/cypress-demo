@@ -41,20 +41,20 @@
           <div class="col-4 q-pa-md bg-grey-2">
             <div class="row justify-between">
               <div class="text-body">Sub-total:</div>
-              <div class="text-body poppins-semibold">
+              <div class="text-body poppins-semibold" data-cy="sub-total-amt">
                 ${{ calculateSubTotal.toFixed(2) }}
               </div>
             </div>
             <div class="row justify-between">
               <div class="text-body">Taxes:</div>
-              <div class="text-body poppins-semibold">
+              <div class="text-body poppins-semibold" data-cy="taxes-amt">
                 ${{ calculateTaxes.toFixed(2) }}
               </div>
             </div>
             <q-separator class="q-my-lg" />
             <div class="row justify-between">
               <div class="text-body">Total:</div>
-              <div class="text-body poppins-semibold">
+              <div class="text-body poppins-semibold" data-cy="total-amt">
                 ${{ calculateTotal.toFixed(2) }}
               </div>
             </div>
