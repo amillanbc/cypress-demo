@@ -42,7 +42,8 @@
                       color="secondary"
                       class="full-width"
                       @click="login()"
-                      :disabled="!user || !pass"
+                      :loading="loading"
+                      :disabled="!user || !pass || loading"
                     />
                     <div
                       class="text-caption text-red q-mt-sm text-center"
@@ -110,16 +111,24 @@ import { ref } from "vue";
 const user = ref("");
 const pass = ref("");
 const errAtLogin = ref(false);
+const loading = ref(false);
 
 // METHODS
 const login = () => {
+  loading.value = true;
   if (user.value === "admin" && pass.value === "admin") {
-    store.login();
-    user.value = "";
-    pass.value = "";
-    errAtLogin.value = false;
+    setTimeout(() => {
+      loading.value = false;
+      store.login();
+      user.value = "";
+      pass.value = "";
+      errAtLogin.value = false;
+    }, 1500);
   } else {
-    errAtLogin.value = true;
+    setTimeout(() => {
+      errAtLogin.value = true;
+      loading.value = false;
+    }, 1500);
   }
 };
 
