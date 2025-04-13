@@ -75,11 +75,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from "vue";
+import { ref, computed, onBeforeMount } from "vue";
 import router from "@/router";
 
 import { useStoreStore } from "@/stores/store";
 const store = useStoreStore();
+
+import { storeToRefs } from "pinia";
+const { isLoggedIn } = storeToRefs(store);
 
 // REFS
 const user = ref("");
@@ -116,5 +119,10 @@ const validateForm = computed(() => {
     pass.value === repass.value &&
     accept.value
   );
+});
+
+// LC HOOKS
+onBeforeMount(() => {
+  if (isLoggedIn.value) router.push("/");
 });
 </script>

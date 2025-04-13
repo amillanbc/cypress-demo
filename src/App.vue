@@ -85,6 +85,7 @@
                 icon="shopping_cart"
                 class="q-ml-md"
                 v-if="isLoggedIn"
+                @click="$router.push('/checkout')"
               />
             </div>
           </div>

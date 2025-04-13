@@ -65,7 +65,7 @@ const addToCart = () => {
   }
   if (product.value) {
     store.addToCart(product.value);
-    router.push("/");
+    router.push("/checkout");
   }
 };
 
