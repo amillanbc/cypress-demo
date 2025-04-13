@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "title": "Mock",
+  "price": 25,
+  "description": "Mock Product Description",
+  "category": "men's clothing",
+  "image": "https://placehold.co/300x300",
+  "rating": {
+    "rate": 3.9,
+    "count": 120
+  }
+}
