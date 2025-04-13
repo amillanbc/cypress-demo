@@ -11,7 +11,7 @@
             v-for="product in allProducts"
             :key="product.id"
           >
-            <q-card class="my-card">
+            <q-card>
               <q-card-section @click="$router.push(`/product/${product.id}`)">
                 <div :style="setProductTileStyle(product.image)" />
               </q-card-section>
@@ -31,7 +31,6 @@
 
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
-import router from "@/router";
 import Product from "@/types/Product";
 
 // REFS

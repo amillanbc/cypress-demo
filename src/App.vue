@@ -118,18 +118,14 @@ const loading = ref(false);
 const login = () => {
   loading.value = true;
   if (user.value === "admin" && pass.value === "admin") {
-    setTimeout(() => {
-      loading.value = false;
-      store.login();
-      user.value = "";
-      pass.value = "";
-      errAtLogin.value = false;
-    }, 1500);
+    loading.value = false;
+    store.login();
+    user.value = "";
+    pass.value = "";
+    errAtLogin.value = false;
   } else {
-    setTimeout(() => {
-      errAtLogin.value = true;
-      loading.value = false;
-    }, 1500);
+    errAtLogin.value = true;
+    loading.value = false;
   }
 };
 

@@ -76,6 +76,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, onBeforeMount } from "vue";
+import { Notify } from "quasar";
 import router from "@/router";
 
 import { useStoreStore } from "@/stores/store";
@@ -103,11 +104,15 @@ const validPass = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
 // METHODS
 const registerUser = () => {
   loading.value = true;
-  setTimeout(() => {
-    loading.value = false;
-    store.login();
-    router.push("/");
-  }, 2000);
+  loading.value = false;
+  store.login();
+  router.push("/");
+  Notify.create({
+    type: "positive",
+    html: true,
+    message: '<div data-cy="registration-toast">Registered successfully</div>',
+    timeout: 3000,
+  });
 };
 
 // COMPUTED

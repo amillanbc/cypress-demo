@@ -4,9 +4,11 @@ import Product from "@/types/Product";
 
 import router from "@/router";
 
+import { Notify } from "quasar";
+
 export const useStoreStore = defineStore("store", {
   state: () => ({
-    isLoggedIn: false,
+    isLoggedIn: true,
     cart: <Product[]>[],
   }),
   actions: {
@@ -20,6 +22,20 @@ export const useStoreStore = defineStore("store", {
     },
     addToCart(product: Product) {
       this.cart.push(product);
+    },
+    removeFromCart(index: number) {
+      this.cart.splice(index, 1);
+    },
+    placeOrder() {
+      this.cart = [];
+      router.push("/");
+      Notify.create({
+        type: "positive",
+        html: true,
+        message:
+          '<div data-cy="order-placed-toast">Order placed successfully</div>',
+        timeout: 3000,
+      });
     },
   },
 });
