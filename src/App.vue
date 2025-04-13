@@ -54,7 +54,7 @@
                       class="text-caption q-mt-sm text-center cursor-pointer"
                       v-close-popup
                     >
-                      <u>Register</u>
+                      <u @click="$router.push('/register')">Register</u>
                     </div>
                   </div>
                 </template>

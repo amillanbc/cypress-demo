@@ -23,6 +23,7 @@
               push
               icon-right="shopping_cart"
               label="Add to cart"
+              @click="addToCart()"
             />
           </div>
         </div>
@@ -35,12 +36,38 @@
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { Notify } from "quasar";
+import router from "@/router";
+
 import Product from "@/types/Product";
+
+import { useStoreStore } from "@/stores/store";
+const store = useStoreStore();
+
+import { storeToRefs } from "pinia";
+const { isLoggedIn } = storeToRefs(store);
 
 const route = useRoute();
 
 // REFS
 const product = ref<Product>();
+
+// METHODS
+const addToCart = () => {
+  if (!isLoggedIn.value) {
+    Notify.create({
+      type: "negative",
+      html: true,
+      message: '<div data-cy="login-required-toast">Login is required</div>',
+      timeout: 3000,
+    });
+    return;
+  }
+  if (product.value) {
+    store.addToCart(product.value);
+    router.push("/");
+  }
+};
 
 // LC HOOKS
 onMounted(() => {
