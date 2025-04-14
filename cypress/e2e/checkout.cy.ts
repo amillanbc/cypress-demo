@@ -20,7 +20,7 @@ describe("Checkout process specs", () => {
     cy.get('[data-cy="place-order-btn"]').click();
     cy.get('[data-cy="order-placed-toast"]').should("be.visible");
   });
-  it.only("Should calculate checkout amounts correctly", () => {
+  it("Should calculate checkout amounts correctly", () => {
     cy.login("admin", "admin");
     cy.addToCart();
     cy.get('[data-cy="sub-total-amt"]').should("contain", "$109.95");
