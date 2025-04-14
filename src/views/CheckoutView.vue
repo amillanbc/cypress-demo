@@ -27,7 +27,7 @@
                       ${{ item.price.toFixed(2) }}
                     </div>
                     <div
-                      class="text-caption text-red"
+                      class="text-caption text-red cursor-pointer"
                       data-cy="remove-from-cart-btn"
                       @click="store.removeFromCart(index)"
                     >
