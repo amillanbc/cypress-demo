@@ -8,7 +8,7 @@ import { Notify } from "quasar";
 
 export const useStoreStore = defineStore("store", {
   state: () => ({
-    isLoggedIn: true,
+    isLoggedIn: false,
     cart: <Product[]>[],
   }),
   actions: {
