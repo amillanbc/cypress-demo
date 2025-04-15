@@ -12,8 +12,11 @@
           color="amber-10"
           class="q-mb-md"
           v-model="user"
+          bottom-slots
           data-cy="user-register-input"
-        />
+        >
+          <template v-slot:hint> Min 6 chars. </template>
+        </q-input>
         <q-input
           filled
           label="Email"
@@ -29,8 +32,12 @@
           color="amber-10"
           class="q-mb-md"
           label="Password"
+          bottom-slots
           data-cy="pass-register-input"
         >
+          <template v-slot:hint>
+            Min 8 chars. Must include letters an numbers.</template
+          >
           <template v-slot:append>
             <q-icon
               :name="isPwd ? 'visibility_off' : 'visibility'"
